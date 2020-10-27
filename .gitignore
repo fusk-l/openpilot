@@ -20,7 +20,9 @@ a.out
 .*.un~
 *.tmp
 *.o
+*.o-*
 *.os
+*.os-*
 *.so
 *.a
 *.clb
@@ -44,7 +46,7 @@ selfdrive/sensord/_gpsd
 selfdrive/sensord/_sensord
 selfdrive/camerad/camerad
 selfdrive/modeld/_modeld
-selfdrive/modeld/_monitoringd
+selfdrive/modeld/_dmonitoringmodeld
 /src/
 
 one
@@ -52,8 +54,15 @@ openpilot
 notebooks
 xx
 panda_jungle
+apks
+openpilot-apks
 
 .coverage*
+coverage.xml
 htmlcov
 pandaextra
 
+.mypy_cache/
+flycheck_*
+
+cppcheck_report.txt
