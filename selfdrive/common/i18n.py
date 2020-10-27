@@ -1,11 +1,15 @@
 import gettext
-from common import android
+from common.hardware import HARDWARE, ANDROID, PC
 
 supported_language = ['en-US', 'ar-EG']
 localedir = '../assets/locales'
 
-is_android = android.ANDROID
-local = android.getprop(ro.product.locale) #if is_android else 
+if ANDROID:
+  
+  local = android.getprop(ro.product.locale)
+else:
+  local = supported_language[0]
+
 i18n = gettext.translation('messages', localedir=localedir, fallback=True, languages=local)
 
 i18n.install()
