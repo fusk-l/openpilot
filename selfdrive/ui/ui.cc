@@ -14,6 +14,7 @@
 #include "common/utilpp.h"
 #include "ui.hpp"
 #include "paint.hpp"
+#include "common/i18n.h"
 
 extern volatile sig_atomic_t do_exit;
 
@@ -258,18 +259,18 @@ void ui_update(UIState *s) {
   if (s->started && !s->scene.frontview && ((s->sm)->frame - s->started_frame) > 5*UI_FREQ) {
     if ((s->sm)->rcv_frame("controlsState") < s->started_frame) {
       // car is started, but controlsState hasn't been seen at all
-      s->scene.alert_text1 = "openpilot Unavailable";
-      s->scene.alert_text2 = "Waiting for controls to start";
+      s->scene.alert_text1 = _("openpilot Unavailable");
+      s->scene.alert_text2 = _("Waiting for controls to start");
       s->scene.alert_size = cereal::ControlsState::AlertSize::MID;
     } else if (((s->sm)->frame - (s->sm)->rcv_frame("controlsState")) > 5*UI_FREQ) {
       // car is started, but controls is lagging or died
-      if (s->scene.alert_text2 != "Controls Unresponsive") {
+      if (s->scene.alert_text2 != _("Controls Unresponsive")) {
         s->sound->play(AudibleAlert::CHIME_WARNING_REPEAT);
         LOGE("Controls unresponsive");
       }
 
-      s->scene.alert_text1 = "TAKE CONTROL IMMEDIATELY";
-      s->scene.alert_text2 = "Controls Unresponsive";
+      s->scene.alert_text1 = _("TAKE CONTROL IMMEDIATELY");
+      s->scene.alert_text2 = _("Controls Unresponsive");
       s->scene.alert_size = cereal::ControlsState::AlertSize::FULL;
       s->status = STATUS_ALERT;
     }
