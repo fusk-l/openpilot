@@ -17,11 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: openpilot/selfdrive/ui/paint.cc:427
-#, c-format
-msgid "%d"
-msgstr ""
-
 #: openpilot/selfdrive/ui/paint.cc:723
 msgid "../assets/fonts/opensans_bold.ttf"
 msgstr ""
